@@ -16,5 +16,10 @@
             De todos los tiempos
         @endif
     </h2>
+    <ol>
+        @for ($i = 0; $i < $cantidad; $i++)
+            <li>Algun texto {{ $i }}</li>
+        @endfor
+    </ol>
 </body>
 </html>

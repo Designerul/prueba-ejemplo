@@ -21,12 +21,11 @@ Route::get('/hola-mundo', function () {
     return view('paginas/hola-mundo');
 });
 
-Route::get('/grabaciones/{nombre}/{aa?}', function ($nombre, $aa = null) {
+Route::get('/grabaciones/{nombre}/{aa?}/{cantidad?}', function ($nombre, $aa = null, $cantidad = 10) {
     $otra = 'mi otra variable';
-    return view('paginas.grabaciones', compact('nombre', 'aa'));
+    return view('paginas.grabaciones', compact('nombre', 'aa', 'cantidad'));
     // ->with([
     //     'nombre' => $nombre, 
     //     'otra' => 'otra variable'
     // ]);
-    
 });
