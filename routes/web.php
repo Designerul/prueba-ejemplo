@@ -24,6 +24,15 @@ Route::get('/tareas', function () {
     return view('tareas.indexTareas', compact('tareas'));
 });
 
+Route::get('/tareas/create', function () {
+    $tareas = DB::table('tareas')->get();
+    return view('tareas.formTarea');
+});
+
+Route::post('/tareas/store', function () {
+    
+});
+
 Route::get('/hola-mundo', function () {
     return view('paginas/hola-mundo');
 });
