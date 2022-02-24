@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('tarea');
             $table->text('descripcion');
-            $table->string('tipo',50);
+            $table->string('categoria',50);
             $table->timestamps();
         });
     }

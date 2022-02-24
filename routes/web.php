@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\TareaController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,20 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tareas', function () {
-    $tareas = DB::table('tareas')->get();
-    //dd($tareas);
-    return view('tareas.indexTareas', compact('tareas'));
-});
 
-Route::get('/tareas/create', function () {
-    $tareas = DB::table('tareas')->get();
-    return view('tareas.formTarea');
-});
-
-Route::post('/tareas/store', function () {
-    
-});
+Route::resource('/tarea', TareaController::class);
+// Route::get('/tarea', [TareaController::class, 'index']);
+// Route::get('/tarea/create', [Tareacontroller::class, 'create']);
+// Route::post('/tarea/store', [Tareacontroller::class, 'store']);
+// show
+// edit
+// update
+// delete
 
 Route::get('/hola-mundo', function () {
     return view('paginas/hola-mundo');

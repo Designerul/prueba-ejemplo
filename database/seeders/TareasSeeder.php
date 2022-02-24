@@ -18,7 +18,7 @@ class TareasSeeder extends Seeder
         DB::table('tareas')->insert([
             'tarea' => 'Ejemplo 1',
             'descripcion' => 'Ejemplo de descripcion',
-            'tipo' => 'Escuela',
+            'categoria' => 'Escuela',
             'created_at' => now(),
             'updated_at' => now()
         ]);
