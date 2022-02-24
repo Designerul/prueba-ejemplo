@@ -18,11 +18,16 @@
         </ul>
     </div>
     @endif
-    
+
     <form action="/tarea" method="POST">
         @csrf
             <label for="tarea">Nombre de la Tarea</label><br>
             <input type="text" name="tarea">
+            <br>
+            @error('tarea')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            
             <br>
             <label for="descripcion">Descripcion</label><br>
             <textarea name="descripcion" id="descripcion" cols="10" rows="5"></textarea>
