@@ -59,7 +59,7 @@ class TareaController extends Controller
      */
     public function show(Tarea $tarea)
     {
-        //
+        return view('tareas.showTarea', compact('tarea'));
     }
 
     /**
@@ -70,7 +70,7 @@ class TareaController extends Controller
      */
     public function edit(Tarea $tarea)
     {
-        //
+        return view('tareas.formTarea', compact('tarea'));
     }
 
     /**
@@ -82,7 +82,18 @@ class TareaController extends Controller
      */
     public function update(Request $request, Tarea $tarea)
     {
-        //
+        $request->validate([
+            'tarea' => 'required|min:5|max:255',
+            'descripcion' => ['required', 'min:5'],
+            'categoria' => 'required',
+        ]);
+
+        $tarea->tarea = $request->tarea;
+        $tarea->descripcion = $request->descripcion;
+        $tarea->categoria = $request->categoria;
+        $tarea->save();
+
+        return redirect('/tarea');
     }
 
     /**
@@ -93,6 +104,7 @@ class TareaController extends Controller
      */
     public function destroy(Tarea $tarea)
     {
-        //
+        $tarea->delete();
+        return redirect('/tarea');
     }
 }
